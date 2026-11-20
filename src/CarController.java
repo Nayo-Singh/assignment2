@@ -45,11 +45,9 @@ public class CarController {
     }
 
     void gas(int amount) {
-        /* TODO adapt to your needs
         double gas = ((double) amount) / 100;
         for (Car car : cars) {
             car.gas(gas);
         }
-        */
     }
 }
