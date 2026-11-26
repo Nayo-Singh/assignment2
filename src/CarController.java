@@ -25,22 +25,29 @@ public class CarController {
         this.timer.start();
     }
 
-    /* Each step, the TimerListener moves all cars in the list and tells the
-     * view to update its images. TODO Change this method to your needs.
-     */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            /*
             for (Car car : cars) {
                 car.move();
-                int x = (int) Math.round(car.getPosition().getX());
-                int y = (int) Math.round(car.getPosition().getY());
-                frame.drawPanel.moveit(x, y);
-                // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.revalidate();
-                frame.drawPanel.repaint();
+
+                int maxX = frame.drawPanel.getWidth() - 100; // 100 is the width of the car image
+                int maxY = frame.drawPanel.getHeight() - 60; // 60 is the height of the car image
+                if (car.getX() < 0 || car.getX() > maxX || car.getY() < 0 || car.getY() > maxY) {
+                    // if the car goes outside the boundaries, we move it back inside and turn it around
+                    // clamp(value, min, max) is used to keep the value within range (min, max)
+                    int newX = Math.clamp(car.getX(), 0, maxX);
+                    int newY = Math.clamp(car.getY(), 0, maxY);
+                    car.setPosition(newX, newY);
+                    car.stopEngine();
+                    car.turnLeft();
+                    car.turnLeft();
+                    car.startEngine();
+                }
             }
-             */
+
+            // repaint() calls the paintComponent method of the panel
+            frame.drawPanel.revalidate();
+            frame.drawPanel.repaint();
         }
     }
 
