@@ -1,15 +1,14 @@
-
 public abstract class Car implements Movable {
 
-    protected double enginePower;
-    protected double currentSpeed;
-    protected String color;
-    protected int nrDoors;
+    private double enginePower;
+    private double currentSpeed;
+    private String color;
+    private int nrDoors;
 
     // Position and direction
-    protected int x;
-    protected int y;
-    protected int direction;
+    private int x;
+    private int y;
+    private int direction;
 
     public Car(int nrDoors, double enginePower, String color) {
         this.nrDoors = nrDoors;
@@ -24,7 +23,7 @@ public abstract class Car implements Movable {
 
     protected abstract double speedFactor();
 
-    public boolean checkInterval(double number){ // checks if number is in the interval 0 - 1
+    private boolean checkInterval(double number){ // checks if number is in the interval 0 - 1
         if (number >= 0 && number <= 1) return true;
         else return false;
     }
@@ -46,6 +45,10 @@ public abstract class Car implements Movable {
 
     public double getCurrentSpeed() {
         return currentSpeed;
+    }
+
+    protected double getEnginePower() {
+        return enginePower;
     }
 
     public String getColor() {

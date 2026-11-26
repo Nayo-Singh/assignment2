@@ -17,8 +17,8 @@ public class Saab95 extends Car {
 
     protected double speedFactor() {
         if (turboOn) {
-            return enginePower * 0.01 * 1.3;
+            return getEnginePower() * 0.01 * 1.3;
         }
-        return enginePower * 0.01;
+        return getEnginePower() * 0.01;
     }
 }
