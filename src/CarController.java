@@ -18,7 +18,7 @@ public class CarController {
 
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
-    // TODO A list of cars, modify if needed
+    // A list of cars, modify if needed
     ArrayList<Car> cars = new ArrayList<>();
 
     public void startTimer() {
@@ -46,8 +46,39 @@ public class CarController {
 
     void gas(int amount) {
         double gas = ((double) amount) / 100;
+        for (Car car : cars) car.gas(gas);
+    }
+
+    void brake(int amount) {
+        double b = ((double) amount) / 100;
+        for (Car car : cars) car.brake(b);
+    }
+
+    void turnLeft() {
+        for (Car car : cars) car.turnLeft();
+    }
+
+    void turnRight() {
+        for (Car car : cars) car.turnRight();
+    }
+
+    void startAll() {
+        for (Car car : cars) car.startEngine();
+    }
+
+    void stopAll() {
+        for (Car car : cars) car.stopEngine();
+    }
+
+    void turboOn() {
         for (Car car : cars) {
-            car.gas(gas);
+            if (car instanceof Saab95 s) s.setTurboOn();
+        }
+    }
+
+    void turboOff() {
+        for (Car car : cars) {
+            if (car instanceof Saab95 s) s.setTurboOff();
         }
     }
 }

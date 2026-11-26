@@ -73,6 +73,10 @@ public abstract class Car implements Movable {
         }
     }
 
+    public void stopEngine() { currentSpeed = 0; }
+
+    public void startEngine() { currentSpeed = 1; }
+
     public void turnLeft() {
         direction = (direction + 3) % 4;
     }
