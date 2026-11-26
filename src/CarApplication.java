@@ -10,5 +10,6 @@ void main() {
     cc.cars.add(saab);
     // Start a new view and send a reference to the controller
     cc.frame = new CarView("CarSim 1.0", cc);
+    cc.frame.drawPanel.setCars(cc.cars);
     cc.startTimer();
 }

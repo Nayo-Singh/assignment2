@@ -6,6 +6,10 @@ public class Volvo240 extends Car {
         super(4, 100, "black");
     }
 
+    public String getName() {
+        return "Volvo240";
+    }
+
     protected double speedFactor() {
         return getEnginePower() * 0.01 * trimFactor;
     }

@@ -21,6 +21,8 @@ public abstract class Car implements Movable {
         this.direction = 0;
     }
 
+    public abstract String getName();
+
     protected abstract double speedFactor();
 
     private boolean checkInterval(double number){ // checks if number is in the interval 0 - 1
